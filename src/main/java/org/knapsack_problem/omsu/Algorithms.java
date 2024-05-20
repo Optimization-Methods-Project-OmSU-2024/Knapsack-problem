@@ -46,7 +46,6 @@ public class Algorithms {
                 int elem = sets[0][maxIndex];
                 int pointer = sets[1][maxIndex];
                 while (elem != -1) {
-                        //setList.add(elem);
                         setsResult[elem]++;
                         elem = sets[0][pointer];
                         pointer = sets[1][pointer];
