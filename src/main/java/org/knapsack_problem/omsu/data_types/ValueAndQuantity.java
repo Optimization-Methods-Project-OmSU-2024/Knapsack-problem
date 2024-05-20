@@ -45,6 +45,6 @@ public class ValueAndQuantity {
         return "ValueAndQuantity{" +
                 "value=" + value +
                 ", quantity=" + quantity +
-                '}';
+                '}' + '\n';
     }
 }
