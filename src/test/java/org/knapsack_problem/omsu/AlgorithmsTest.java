@@ -1,13 +1,22 @@
 package org.knapsack_problem.omsu;
 
-import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
 import org.knapsack_problem.omsu.data_types.ValueAndQuantity;
 import org.knapsack_problem.omsu.data_types.OptimumAndSets;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AlgorithmsTest {
 
+    @Test
+    void generalKnapsackAlgorithm() {
+        System.out.println(Arrays.deepToString(Algorithms.generalKnapsackAlgorithm(11, new int[]{3, 4, 5},
+                new double[]{5, 9, 13, 17},
+                new double[]{-1, 5, 11},
+                new double[]{2, 5, 14})));
+    }
+  
     @Test
     void unboundedKnapsackAlgorithm() {
         int[] weight = {4, 5, 9};
