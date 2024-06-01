@@ -30,7 +30,7 @@ public class SolutionRestoration {
         }
     }
 
-    public static OptimumAndSets SolutionRestorationForGeneralMethod(ValueAndQuantity[][] arr, double[] ... values){
+    public static OptimumAndSets SolutionRestorationForGeneralMethod(ValueAndQuantity[][] arr, int[] weight){
         try{
             if(arr == null) {throw new IllegalArgumentException("Algorithm for general method had some problems");}
 
@@ -44,7 +44,7 @@ public class SolutionRestoration {
                 }
                 else{
                     sets[i] = arr[i][j].getQuantity();
-                    j = j - values[i][arr[i][j].getQuantity()];
+                    j = j - arr[i][j].getQuantity() * weight[i];
                 }
             }
 
