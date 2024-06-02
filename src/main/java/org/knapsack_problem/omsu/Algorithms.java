@@ -54,7 +54,7 @@ public class Algorithms {
         }
     }
 
-        public static OptimumAndSets UnboundedKnapsackAlgorithm(int knapsackWeight, int[] weight, int[] value) {
+        public static OptimumAndSets UnboundedKnapsackAlgorithm(int knapsackWeight, int[] weight, double[] value) {
                 if(weight == null || value == null) { throw new IllegalArgumentException("Table is null!"); }
                 if(knapsackWeight < 0) { throw new IllegalArgumentException("Weight of the knapsack is negative!"); }
                 if( !Arrays.stream(weight).allMatch( a -> a > 0)) { throw new IllegalArgumentException("Some weight is not positive!"); }
@@ -74,7 +74,7 @@ public class Algorithms {
                                 if (weight[j] <= i) {
                                         if (value[j] + optimum[i - weight[j]] >= optimum[i])
                                          {
-                                                optimum[i] = value[j] + optimum[i - weight[j]];
+                                                optimum[i] = (int) value[j] + optimum[i - weight[j]];
                                                 sets[0][i] = j;
                                                 sets[1][i] = i - weight[j];
                                         }

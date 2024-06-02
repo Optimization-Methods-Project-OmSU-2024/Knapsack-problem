@@ -20,7 +20,7 @@ class AlgorithmsTest {
     @Test
     void unboundedKnapsackAlgorithm() {
         int[] weight = {4, 5, 9};
-        int[] value = {5, 6, 12};
+        double[] value = {5, 6, 12};
 
         assertEquals(
                 new OptimumAndSets(12, new int[]{0, 0, 1}),
@@ -30,7 +30,7 @@ class AlgorithmsTest {
     @Test
     void unboundedKnapsackAlgorithm2() {
         int[] weight = {2, 3, 4, 5, 6, 7};
-        int[] value = {3, 5, 9, 11, 12, 15};
+        double[] value = {3, 5, 9, 11, 12, 15};
 
         assertEquals(
                 new OptimumAndSets(767, new int[]{0, 0, 84, 1, 0, 0}),
@@ -40,7 +40,7 @@ class AlgorithmsTest {
     @Test
     void unboundedKnapsackAlgorithm3() {
         int[] weight = {2,2,2};
-        int[] value = {2,2,2};
+        double[] value = {2,2,2};
 
         assertEquals(
                 new OptimumAndSets(44, new int[]{0, 0, 22}),
