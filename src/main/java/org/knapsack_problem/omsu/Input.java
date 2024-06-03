@@ -160,9 +160,14 @@ public class Input {
             List<double[]> list = new ArrayList<>();
             Random rand = new Random();
             int knapsackWeight = rand.nextInt(100) + 1;
+            writer.write(knapsackWeight+"\n");
             int[] weight = new int[numberOfValues];
             for (int i = 0; i < numberOfValues; i++) {
                 weight[i] = rand.nextInt(50) + 1;
+                writer.write(weight[i]+" ");
+            }
+            writer.write("\n");
+            for (int i = 0; i < numberOfValues; i++) {
                 int size = rand.nextInt(10) + 1;
                 if (i == 0) size = numberOfValues;
                 double[] arr = new double[size];
@@ -170,6 +175,7 @@ public class Input {
                     arr[j] = (double) Math.round((rand.nextDouble() * 100) * 10) / 10;
                     writer.write(arr[j] + " ");
                 }
+                writer.write("\n");
                 list.add(arr);
             }
             writer.write('\n');
