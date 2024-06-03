@@ -108,7 +108,7 @@ public class Input {
     public static GeneralKnapsack RandomInputNonlinear(int numberOfValues) {
         try (FileWriter writer = new FileWriter("input.txt")) {
             Random rand = new Random();
-
+            List<double[]> list = new ArrayList<>();
             int knapsackWeight = rand.nextInt(100) + 1;
             writer.write(knapsackWeight+"\n");
             int[] weight = new int[numberOfValues];
