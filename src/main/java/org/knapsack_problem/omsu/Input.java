@@ -8,13 +8,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Input {
-    public static BooleanKnapsack FileInputBool() {
+    public static BooleanKnapsack FileInputBoolAndUnbounded() {
         Scanner scanner;
         try {
             scanner = new Scanner(new File("input.txt"));
@@ -39,75 +36,28 @@ public class Input {
         }
     }
 
-    public static UnboundedKnapsack FileInputUnbounded() {
-        Scanner scanner;
-        try {
-            scanner = new Scanner(new File("input.txt"));
-            int knapsackWeight = Integer.parseInt(scanner.nextLine());
-            String[] weightString = scanner.nextLine().split(" ");
-            String[] valueString = scanner.nextLine().split(" ");
-            if (weightString.length != valueString.length) throw new ArrayIndexOutOfBoundsException();
-            int[] weight = new int[weightString.length];
-            double[] value = new double[valueString.length];
-            for (int i = 0; i < weightString.length; i++) {
-                weight[i] = Integer.parseInt(weightString[i]);
-                value[i] = Double.parseDouble(valueString[i]);
-            }
-            scanner.close();
-            return new UnboundedKnapsack(knapsackWeight, weight, value);
-        } catch (FileNotFoundException e) {
-            System.out.println("File is not found.");
-            return null;
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("The weights string does not match the values string.");
-            return null;
-        }
-    }
 
-    public static BooleanKnapsack RandomInputBool(int numberOfValues) {
+    public static BooleanKnapsack RandomInputBoolAndUnbounded(int numberOfValues) {
         try (FileWriter writer = new FileWriter("input.txt")) {
             int[] weight = new int[numberOfValues];
             double[] value = new double[numberOfValues];
             Random rand = new Random();
+
             int knapsackWeight = rand.nextInt(100) + 1;
             writer.write(knapsackWeight + "\n");
-            ;
+            
             for (int j = 0; j < numberOfValues; j++) {
                 weight[j] = rand.nextInt(50) + 1;
-                value[j] = (double) Math.round((rand.nextDouble() * 100) * 10) / 10;
+                
                 writer.write(weight[j] + " ");
             }
             writer.write("\n");
             for (int j = 0; j < numberOfValues; j++) {
+                value[j] = (double) Math.round((rand.nextDouble() * 100) * 10) / 10;
                 writer.write(value[j] + " ");
             }
             writer.close();
             return new BooleanKnapsack(knapsackWeight, weight, value);
-        } catch (IOException e) {
-            System.out.println("File doesn't exist");
-            return null;
-        }
-    }
-
-    public static UnboundedKnapsack RandomInputUnbounded(int numberOfValues) {
-        try (FileWriter writer = new FileWriter("input.txt")) {
-            int[] weight = new int[numberOfValues];
-            double[] value = new double[numberOfValues];
-            Random rand = new Random();
-            int knapsackWeight = rand.nextInt(100) + 1;
-            writer.write(knapsackWeight + "\n");
-            ;
-            for (int j = 0; j < numberOfValues; j++) {
-                weight[j] = rand.nextInt(50) + 1;
-                value[j] = (double) Math.round((rand.nextDouble() * 100) * 10) / 10;
-                writer.write(weight[j] + " ");
-            }
-            writer.write("\n");
-            for (int j = 0; j < numberOfValues; j++) {
-                writer.write(value[j] + " ");
-            }
-            writer.close();
-            return new UnboundedKnapsack(knapsackWeight, weight, value);
         } catch (IOException e) {
             System.out.println("File doesn't exist");
             return null;
@@ -119,6 +69,7 @@ public class Input {
         try {
             scanner = new Scanner(new File("input.txt"));
             int knapsackWeight = Integer.parseInt(scanner.nextLine());
+          
             List<double[]> list = new ArrayList<>();
             String[] stringData = scanner.nextLine().split(" ");
             int[] weight = new int[stringData.length];
@@ -134,7 +85,6 @@ public class Input {
                 list.add(doubleData);
             }
             scanner.close();
-
 
             int maxLength = list.stream().mapToInt(arr -> arr.length).max().orElse(0);
             double[][] value = new double[list.size()][maxLength];
@@ -157,8 +107,8 @@ public class Input {
 
     public static GeneralKnapsack RandomInputNonlinear(int numberOfValues) {
         try (FileWriter writer = new FileWriter("input.txt")) {
-            List<double[]> list = new ArrayList<>();
             Random rand = new Random();
+
             int knapsackWeight = rand.nextInt(100) + 1;
             writer.write(knapsackWeight+"\n");
             int[] weight = new int[numberOfValues];
@@ -175,6 +125,7 @@ public class Input {
                     arr[j] = (double) Math.round((rand.nextDouble() * 100) * 10) / 10;
                     writer.write(arr[j] + " ");
                 }
+
                 writer.write("\n");
                 list.add(arr);
             }

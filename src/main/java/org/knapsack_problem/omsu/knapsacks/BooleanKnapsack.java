@@ -4,17 +4,11 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class BooleanKnapsack {
-    @Override
-    public String toString() {
-        return "BooleanKnapsack{" +
-                "knapsackWeight=" + knapsackWeight +
-                ", weights=" + Arrays.toString(weights) +
-                ", values=" + Arrays.toString(values) +
-                '}';
-    }
-
+  
     private int knapsackWeight;
+
     private int[] weights;
+
     private double[] values;
 
     public BooleanKnapsack(int knapsackWeight, int[] weights, double[] values) {
@@ -27,20 +21,21 @@ public class BooleanKnapsack {
         return knapsackWeight;
     }
 
-    public int[] getWeights() {
-        return weights;
-    }
-
-    public double[] getValues() {
-        return values;
-    }
-
     public void setKnapsackWeight(int knapsackWeight) {
         this.knapsackWeight = knapsackWeight;
     }
 
+    public int[] getWeights() {
+        return weights;
+    }
+
+
     public void setWeights(int[] weights) {
         this.weights = weights;
+    }
+
+    public double[] getValues() {
+        return values;
     }
 
     public void setValues(double[] values) {
@@ -48,10 +43,11 @@ public class BooleanKnapsack {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BooleanKnapsack that = (BooleanKnapsack) o;
+
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        BooleanKnapsack that = (BooleanKnapsack) object;
         return knapsackWeight == that.knapsackWeight && Arrays.equals(weights, that.weights) && Arrays.equals(values, that.values);
     }
 
@@ -61,5 +57,14 @@ public class BooleanKnapsack {
         result = 31 * result + Arrays.hashCode(weights);
         result = 31 * result + Arrays.hashCode(values);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "BooleanKnapsack{" +
+                "knapsackWeight=" + knapsackWeight +
+                ", weights=" + Arrays.toString(weights) +
+                ", values=" + Arrays.toString(values) +
+                '}';
     }
 }
