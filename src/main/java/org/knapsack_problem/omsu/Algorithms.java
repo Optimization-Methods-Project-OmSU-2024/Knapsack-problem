@@ -43,7 +43,10 @@ public class Algorithms {
                     }
                     else {
                         res[i][j].setValue(Math.max(res[i - 1][j].getValue(), value[i] + res[i -1][j - weight[i]].getValue()));
-                        res[i][j].setQuantity(1);
+                        if (value[i] + res[i -1][j - weight[i]].getValue() > res[i - 1][j].getValue()) {
+                            res[i][j].setQuantity(1);
+                        }
+                        else res[i][j].setQuantity(0);
                     }
                 }
             }
