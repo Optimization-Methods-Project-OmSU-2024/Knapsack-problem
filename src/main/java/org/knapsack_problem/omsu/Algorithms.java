@@ -60,7 +60,7 @@ public class Algorithms {
                 if( !Arrays.stream(weight).allMatch( a -> a > 0)) { throw new IllegalArgumentException("Some weight is not positive!"); }
                 if( !Arrays.stream(value).allMatch( a -> a > 0)) { throw new IllegalArgumentException("Some value is not positive!"); }
 
-                int[] optimum = new int[knapsackWeight + 1];
+                double[] optimum = new double[knapsackWeight + 1];
                 optimum[0] = 0;
                 int[][] sets = new int[2][knapsackWeight + 1];
                 sets[0][0] = -1;
@@ -74,7 +74,7 @@ public class Algorithms {
                                 if (weight[j] <= i) {
                                         if (value[j] + optimum[i - weight[j]] >= optimum[i])
                                          {
-                                                optimum[i] = (int) value[j] + optimum[i - weight[j]];
+                                                optimum[i] = value[j] + optimum[i - weight[j]];
                                                 sets[0][i] = j;
                                                 sets[1][i] = i - weight[j];
                                         }
