@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class BooleanKnapsack {
-
+  
     private int knapsackWeight;
 
     private int[] weights;
@@ -29,6 +29,7 @@ public class BooleanKnapsack {
         return weights;
     }
 
+
     public void setWeights(int[] weights) {
         this.weights = weights;
     }
@@ -42,6 +43,7 @@ public class BooleanKnapsack {
     }
 
     @Override
+
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;

@@ -20,7 +20,7 @@ public class GeneralKnapsack {
     public int getKnapsackWeight() {
         return knapsackWeight;
     }
-
+  
     public void setKnapsackWeight(int knapsackWeight) {
         this.knapsackWeight = knapsackWeight;
     }
@@ -28,7 +28,6 @@ public class GeneralKnapsack {
     public int[] getWeights() {
         return weights;
     }
-
     public void setWeights(int[] weights) {
         this.weights = weights;
     }
@@ -36,9 +35,22 @@ public class GeneralKnapsack {
     public double[][] getValues() {
         return values;
     }
-
+    
     public void setValues(double[][] values) {
         this.values = values;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Knapsack Weight: ").append(knapsackWeight).append("\n");
+        sb.append("Weights: ").append(Arrays.toString(weights)).append("\nValues:");
+        for (int i = 0; i < values.length; i++) {
+            sb.append("\n");
+            sb.append(Arrays.toString(values[i]));
+        }
+
+        return sb.toString();
     }
 
     @Override
@@ -56,14 +68,4 @@ public class GeneralKnapsack {
         result = 31 * result + Arrays.hashCode(values);
         return result;
     }
-
-    @Override
-    public String toString() {
-        return "GeneralKnapsack{" +
-                "knapsackWeight=" + knapsackWeight +
-                ", weights=" + Arrays.toString(weights) +
-                ", values=" + Arrays.toString(values) +
-                '}';
-    }
-
 }
