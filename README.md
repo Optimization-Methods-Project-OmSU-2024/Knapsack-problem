@@ -4,7 +4,7 @@
 
 ## Demo
 https://github.com/user-attachments/assets/f983138b-f8eb-4fad-a110-b2d37589a161
-
+grokking algorithms aditya bhargava
 
 ## Установка
 Загрузите файл Knapsack_problem.jar. Внимание: рядом с .jar файлом будет создаватся файл Input.txt для ввода графа, поэтому имеет смысл поместить .jar в отдельную папку.
